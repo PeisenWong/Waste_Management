@@ -61,21 +61,60 @@
         #line-chart-container{
             margin-top: 50px;
         }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+        }
+        form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
     <div class="dashboard">
         <h1>Waste management dashboard</h1>
-        <h2>Current data in <span id="current-week">week 22</span></h2>
+        <h2>Current data in <span id="current-day">week 22</span></h2>
         <div class="row">
             <div class="card">
                 <h3>Smart Dustbins Allocated</h3>
-                <div class="value" id="completed-tasks">28</div>
+                <div class="value" id="total-dustbins">28</div>
                 <div class="subtitle">dustbins</div>
             </div>
             <div class="card">
                 <h3>Total Waste Collected</h3>
-                <div class="value" id="incomplete-tasks">14</div>
+                <div class="value" id="total-waste">14</div>
                 <div class="subtitle">wastes</div>
             </div>
         </div>
@@ -90,6 +129,21 @@
             <div id="line-chart"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <div class="container">
+        <h1>Add New Dustbin</h1>
+        <form id="add-dustbin-form">
+            <label for="dustbin-id">Dustbin ID:</label>
+            <input type="text" id="dustbin-id" name="dustbin_id" required>
+
+            <label for="insert-date">Insert Date:</label>
+            <input type="date" id="insert-date" name="insert_date" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <button type="submit">Add Dustbin</button>
+        </form>
+    </div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
